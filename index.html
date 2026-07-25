@@ -1,0 +1,32 @@
+---
+layout: default
+title: 首頁
+---
+
+<section class="home-intro">
+  <h2>嗨，歡迎來這裡！</h2>
+  <p>這裡每天為你整理台灣各縣市的在地活動、政策公告，讓你輕鬆掌握身邊正在發生的事 🗺️</p>
+</section>
+
+<section class="post-list">
+  <h3>最新文章</h3>
+  {% for post in site.posts %}
+  <article class="post-card">
+    <div class="post-card-meta">
+      <span class="post-county">📍 {{ post.county }}</span>
+      <span class="post-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+      {% for cat in post.categories %}
+        <span class="post-category">{{ cat }}</span>
+      {% endfor %}
+    </div>
+    <h4 class="post-card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h4>
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</p>
+  </article>
+  {% endfor %}
+
+  {% if site.posts.size == 0 %}
+  <p class="no-posts">文章即將登場，敬請期待 ✨</p>
+  {% endif %}
+</section>
