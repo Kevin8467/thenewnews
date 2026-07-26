@@ -6,14 +6,11 @@ url: "https://kevin8467.github.io"
 lang: zh-TW
 timezone: Asia/Taipei
 
-# 文章設定
 permalink: /:year/:month/:day/:title/
 
-# 分頁（選填，之後文章多了可以開啟）
-# plugins:
-#   - jekyll-paginate
+plugins:
+  - jekyll-sitemap
 
-# 排除不需要部署的檔案
 exclude:
   - README.md
   - Gemfile
